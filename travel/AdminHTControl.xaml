@@ -1,0 +1,49 @@
+﻿<UserControl x:Class="travel.AdminHTControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:travel"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" VerticalAlignment="Center" Margin="0,0,0,35" >
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" >
+                    <Button x:Name="deletehot" Click="deletehot_Click" Content="Delete offer" Width="95" Margin="0,0,30,0"/>
+                     <Button x:Name="viewall" Click="viewall_Click" Content="View All offers" Width="95" Margin="0,0,30,0"/>
+                    <Button x:Name="viewhot" Click="viewhot_Click"  Content="View All hot" Width="95" Margin="0,0,30,0"/>
+                <Button x:Name="addhot" Click="addhot_Click"  Content="Add hot Offer" Width="95" Height="50" Margin="0,0,30,0"/>
+                <Label   Content="Picked Id:" Width="65" Height="45" FontSize="20" />
+                <Label Name="pickedhot"  Content="{Binding SelectedItem.Id_trip, ElementName=hotgrid}"  FontSize="20"/>
+            </StackPanel>
+        </StackPanel>
+
+
+        <StackPanel Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Center" Orientation="Vertical"  >
+            <DataGrid x:Name="hotgrid" Height="296" Width="800" VerticalAlignment="Top" AutoGenerateColumns="False" HorizontalAlignment="Center" Margin="25,0" ScrollViewer.CanContentScroll="True">
+                <DataGrid.Columns>
+
+                    <DataGridTextColumn Header="Trip ID" Width="100" Binding="{Binding Id_trip}"/>
+                    <DataGridTextColumn Header="Title" Width="150" Binding="{Binding Trip_title}"/>
+                    <DataGridTextColumn Header="Trip Type" Width="100" Binding="{Binding TripType_name}"/>
+                    <DataGridTextColumn Header="Price" Width="70" Binding="{Binding price}"/>
+                    <DataGridTextColumn Header="Stars" Width="40" Binding="{Binding stars}"/>
+                    <DataGridTextColumn Header="Country" Width="100" Binding="{Binding Country_name}"/>
+                    <DataGridTextColumn  Header="Description" Width="100" Binding="{Binding Trip_Description}" IsReadOnly="True"/>
+                    <DataGridTemplateColumn Header="Image" Width="100" >
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Image Source="{Binding imgpath}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+
+        </StackPanel>
+    </Grid>
+</UserControl>

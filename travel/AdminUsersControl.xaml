@@ -1,0 +1,66 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:travel"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Class="travel.AdminUsersControl"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid Margin="0,0,0,-216">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Height="300" Width="300" HorizontalAlignment="Left" >
+            <StackPanel HorizontalAlignment="Left">
+                <TextBox x:Name="passwtxt" Text="{Binding SelectedItem.password_user, ElementName=usersgrid}" HorizontalAlignment="Left"  Height="23" Margin="30,0,0,0" TextWrapping="Wrap"   Width="150"/>
+                <Button Click="updpss_Click" x:Name="updpss" Content="update" HorizontalAlignment="Left"  Height=" 30" Width="85" Margin="30,15,0,0"   RenderTransformOrigin="0.49,1.517">
+                </Button>
+                <TextBox x:Name="logintxt" Text="{Binding SelectedItem.user_login, ElementName=usersgrid}" HorizontalAlignment="Left"  Height="23" Margin="30,35,0,0" TextWrapping="Wrap"  Width="150"/>
+                <Button Click="updlog_Click" x:Name="updlog" Content="update" HorizontalAlignment="Left"  Height=" 30" Width="85" Margin="30,15,0,0"   RenderTransformOrigin="0.49,1.517"/>
+                <TextBox x:Name="emailtxt" Text="{Binding SelectedItem.email, ElementName=usersgrid}" HorizontalAlignment="Left" Height="23" Margin="30,35,0,0" TextWrapping="Wrap"  Width="150"/>
+                <Button Click="updemail_Click" x:Name="updemail" Content="update" HorizontalAlignment="Left"  Height=" 30" Width="85" Margin="30,15,0,0"   RenderTransformOrigin="0.49,1.517"/>
+                <Label Name="pickedid" Content="{Binding SelectedItem.Id_u, ElementName=usersgrid}" VerticalAlignment="Center" />
+            </StackPanel>
+            </StackPanel> 
+        <Grid Grid.Row="0" HorizontalAlignment="Right" Width="300">
+                <StackPanel>
+                <Label Content="UPDATE USER ROLE?" HorizontalAlignment="Center" />
+                <RadioButton x:Name="admincheck"  Content="ADMIN ROLE" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+               <RadioButton x:Name="usercheck" Content="USERS  ROLE"  HorizontalAlignment="Center"/>
+                <Button Click="updrole_Click" x:Name="updrole" Content="update" HorizontalAlignment="Center"  Height=" 30" Width="85" Margin="0,15,0,0"   RenderTransformOrigin="0.49,1.517"/>
+            </StackPanel>
+        </Grid>
+        <Grid  Grid.Row="0" HorizontalAlignment="Center" Width="150">
+            <StackPanel >
+                <StackPanel VerticalAlignment="Top">
+
+                    <Button Click="delus_Click" x:Name="delus" Content="Delete User" HorizontalAlignment="Center" VerticalAlignment="Top"  Height=" 30" Width="85"    RenderTransformOrigin="0.49,1.517"/>
+                </StackPanel>
+                <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,50">
+                    <RadioButton x:Name="userlogsrch" Content="Search by login"  HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <RadioButton x:Name="usermailsrch" Content="Search by email"  HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <TextBox x:Name="searchtxt"    Height="23" Margin="0,10,0,0"    Width="150"/>
+                    <Button  Click="searchbtnuser_Click" x:Name="searchbtnuser" Content="search"  Height=" 30" Width="85" Margin="0,15,0,0"   RenderTransformOrigin="0.49,1.517"/>
+
+                </StackPanel>
+            </StackPanel>
+
+        </Grid>
+        <StackPanel Grid.Row="1" VerticalAlignment="Bottom" Height="329">
+            <DataGrid x:Name="usersgrid" Height="296" Width="750" VerticalAlignment="Top" AutoGenerateColumns="False" HorizontalAlignment="Center" Margin="25,0">
+                <DataGrid.Columns>
+
+                    <DataGridTextColumn Header="User ID" Width="100" Binding="{Binding Id_u}"/>
+                    <DataGridTextColumn Header="Login" Width="150" Binding="{Binding user_login}"/>
+                    <DataGridTextColumn Header="Email" Width="200" Binding="{Binding email}"/>
+                    <DataGridTextColumn Header="Password" Width="150" Binding="{Binding password_user}"/>
+                    <DataGridTextColumn Header="User Type" Width="100" Binding="{Binding Ad_nametype}"/>
+
+                </DataGrid.Columns>
+            </DataGrid>
+        </StackPanel>
+
+    </Grid>
+</UserControl>

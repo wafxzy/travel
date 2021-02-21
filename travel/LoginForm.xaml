@@ -1,0 +1,110 @@
+﻿<Window x:Class="travel.LoginForm"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:travel"
+        xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+        mc:Ignorable="d"
+ AllowsTransparency="True" Background="Transparent"
+        WindowStyle="None" ResizeMode="NoResize"
+        Title="LoginForm" Height="500" Width="380"
+         WindowStartupLocation="CenterScreen"
+        MouseDown="Window_MouseDown">
+    
+    <Grid>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+        <!--IMAGE closde btn AND TITLE-->    
+            <Border CornerRadius="10" Grid.RowSpan="2">
+                <Border.Background>
+                    <LinearGradientBrush>
+                        <GradientStop Color="#f083da" Offset="0.3"/>
+                        <GradientStop Color="#000C66" Offset="1"/>
+                    </LinearGradientBrush>
+                </Border.Background>
+            </Border>
+            <StackPanel VerticalAlignment="Top" HorizontalAlignment="Right">
+                <Button x:Name="closelogformbtn" Click="Button_Click">
+                    <Image Source="images/close.png" Width="35" x:Name="quitimg"  />
+                </Button>
+            </StackPanel>
+            
+            <StackPanel VerticalAlignment="Center">
+                <Image Source="images/5f11b08422d50.png " Width="100"/>
+                <TextBlock Text="TRAVEL MIND"
+                          FontWeight="Light"
+                          FontFamily="helvetica"
+                          FontSize="22"
+                          Foreground="White"
+                          HorizontalAlignment="Center"/>
+            </StackPanel>
+<!--=====================================================-->
+            <!--textboxes-->
+            <StackPanel Grid.Row="1" >
+                <StackPanel Orientation="Horizontal">
+                    <TextBox FontFamily="Helvetica"
+                             x:Name="Login"
+                            FontWeight="Light"
+                             GotFocus="TextBox_GotFocus"
+                            Text="Username"
+                            FontSize="20"
+                            HorizontalAlignment="Center"
+                            Foreground="White"
+                            Background="Transparent"
+                            BorderThickness="0"
+                            Width="235"
+                            HorizontalContentAlignment="Left"
+                            Opacity="0.5"
+                            Height="25"
+                            Margin="63,0,0,0"/>
+                    <iconPacks:PackIconMaterial Kind="Account"
+                                               VerticalAlignment="Center"
+                                               HorizontalAlignment="Center"
+                                               Foreground="White"/>
+                </StackPanel>
+                <Border Width="250"
+                       Height="2"
+                       Background="White"
+                       Opacity="0.5"/>
+
+
+
+                <StackPanel Orientation="Horizontal" Margin="0,20,0,0">
+                    <PasswordBox FontFamily="Helvetica" x:Name="passw"
+                                 GotFocus="PasswordBox_GotFocus"
+                            FontWeight="Light"
+                            Password="Password"
+                            FontSize="20"
+                            HorizontalAlignment="Center"
+                            Foreground="White"
+                            Background="Transparent"
+                            BorderThickness="0"
+                            Width="235"
+                            HorizontalContentAlignment="Left"
+                            Opacity="0.5"
+                            Height="25"
+                            Margin="63,0,0,0"/>
+                    <iconPacks:PackIconMaterial Kind="Onepassword"
+                                               VerticalAlignment="Center"
+                                               HorizontalAlignment="Center"
+                                               Foreground="White"/>
+                </StackPanel>
+                <Border Width="250"
+                       Height="2"
+                       Background="White"
+                       Opacity="0.5"/>
+<!--======================================================================================-->
+
+                <StackPanel Orientation="Horizontal" Margin="0,50,0,0">
+                    <Button x:Name="btnloginLogf" Click="btnloginLogf_Click" Width="100" Height="40" Content="LOGIN" Margin="60,0,60,0"/>
+                    <Button x:Name="Regbtnlogf" Click="Regbtnlogf_Click"  Width="100" Height="40" Content="REGISTER"/>
+                </StackPanel>
+
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>
